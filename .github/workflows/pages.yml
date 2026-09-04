@@ -1,0 +1,51 @@
+# Generated from davis-web/templates/github/pages-workflow.yml
+# Regenerate with: ./scripts/sync-site <site-id>
+# Local edits will be overwritten. Change the template, not this copy.
+name: Publish site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # The site is static HTML, so there is no build step. The figure sensors
+      # are the check that matters: they are geometry checks over the committed
+      # SVGs and need nothing but Python.
+      - name: Check figures
+        run: |
+          if [ -f figures/check_figures.py ]; then
+            python3 figures/check_figures.py figures
+          else
+            echo "no figures/ directory; nothing to check"
+          fi
+
+      # enablement:true turns Pages on for this repository if it is not already,
+      # so publishing needs no manual settings change.
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - id: deploy
+        uses: actions/deploy-pages@v4

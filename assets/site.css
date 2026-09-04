@@ -1,0 +1,59 @@
+/* GENERATED from davis-web/generators/generate_sites.py -- do not hand-edit.
+   The shared Davis research-site visual language, projected from the MAGE
+   design tokens so every program site is recognisably one family. */
+:root {
+  --paper: #fdfcf9; --panel: #f6f4ef; --ink: #1c1917; --muted: #57534e;
+  --rule: #e4e0d8; --accent: #9a3f12; --accent-tint: #faf1e6;
+  --accent-dark: #7f2f0c;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font: 17px/1.65 "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+.wrap { max-width: 60rem; margin: 0 auto; padding: 0 1.5rem; }
+a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
+a:hover { border-bottom-color: var(--accent); }
+h1, h2, h3 {
+  font-family: "Source Serif 4", Charter, "IBM Plex Serif", Georgia, serif;
+  font-weight: 600; letter-spacing: -0.01em; line-height: 1.2;
+}
+h1 { font-size: 2.6rem; margin: 0 0 .6rem; }
+h2 { font-size: 1.6rem; margin: 3.2rem 0 1rem; padding-bottom: .4rem;
+      border-bottom: 1px solid var(--rule); }
+h3 { font-size: 1.15rem; margin: 1.8rem 0 .3rem; }
+header.site { padding: 3.5rem 0 1rem; }
+.thesis { font-size: 1.3rem; line-height: 1.5; color: var(--ink); max-width: 44rem;
+           margin: 0 0 1.6rem; }
+.kicker { font-size: .82rem; letter-spacing: .09em; text-transform: uppercase;
+           color: var(--muted); margin: 0 0 .8rem; }
+.cta { display: inline-block; padding: .55rem 1.1rem; background: var(--accent);
+        color: var(--paper); border-radius: 3px; font-weight: 600; border: 0; }
+.cta:hover { background: var(--accent-dark); border: 0; }
+figure.hero { margin: 2.5rem 0 0; }
+figure.hero svg, figure.hero img { width: 100%; height: auto; display: block; }
+figcaption { font-size: .93rem; color: var(--muted); margin-top: .7rem;
+              padding-top: .7rem; border-top: 1px solid var(--rule); }
+.agenda { display: grid; gap: 1.4rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
+.agenda h3 { margin-top: 0; }
+.agenda p { margin: 0; color: var(--muted); font-size: .97rem; }
+.pub { padding: 1rem 0; border-bottom: 1px solid var(--rule); }
+.pub:last-child { border-bottom: 0; }
+.pub .t { font-weight: 600; }
+.pub .meta { color: var(--muted); font-size: .92rem; margin-top: .15rem; }
+.pub .why { margin-top: .35rem; }
+.pub .links { margin-top: .35rem; font-size: .92rem; }
+.pub .links a { margin-right: .9rem; }
+.badge { display: inline-block; font-size: .72rem; letter-spacing: .06em;
+          text-transform: uppercase; color: var(--accent-dark);
+          background: var(--accent-tint); border: 1px solid var(--accent);
+          border-radius: 2px; padding: .05rem .4rem; margin-left: .4rem;
+          vertical-align: .08em; }
+.funding li { margin-bottom: .7rem; color: var(--muted); }
+.funding strong { color: var(--ink); font-weight: 600; }
+footer.site { margin-top: 4rem; padding: 2rem 0 3.5rem; border-top: 1px solid var(--rule);
+               color: var(--muted); font-size: .93rem; }
+footer.site a { color: var(--muted); border-bottom: 1px solid var(--rule); }
+footer.site a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+@media (max-width: 34rem) { h1 { font-size: 2rem; } .thesis { font-size: 1.12rem; } }
