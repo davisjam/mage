@@ -39,6 +39,10 @@ a:hover{color:var(--accent-dark);text-decoration:underline}
 .rail ul{list-style:none;margin:0;padding:0}
 .rail li{margin-bottom:.3rem;font-size:15px}
 .main{min-width:0}
+/* A long title, URL or identifier must shrink with its column rather than
+   forcing the page wider. */
+.main,.rail,.bib,.split>*{min-width:0}
+h1,h2,h3,p,.bib .ti,.bib .vn,.support dd{overflow-wrap:anywhere}
 
 h1,h2,h3{color:var(--text);font-family:-apple-system, ".SFNSText-Regular", "San Francisco", Roboto, "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;line-height:1.2}
 h1{font-size:28.13px;font-weight:700;margin:0 0 .3rem}
@@ -50,9 +54,13 @@ p{max-width:864px}
 
 /* project-local navigation: inside the content column, BELOW the intro.
    It never replaces the global nav. */
+/* Flex with wrap, not inline anchors. The generator emits no whitespace
+   BETWEEN anchors, so as inline content the row had no break opportunity and
+   overflowed to 370px inside a 320px viewport. */
 .jump{margin:1.2rem 0 0;padding:.55rem 0;border-top:1px solid var(--rule);
-  border-bottom:1px solid var(--rule);font-size:16px}
-.jump a{margin-right:1.3rem;color:var(--muted);white-space:nowrap}
+  border-bottom:1px solid var(--rule);font-size:16px;
+  display:flex;flex-wrap:wrap;gap:.3rem 1.3rem}
+.jump a{color:var(--muted);white-space:nowrap}
 .jump a:hover{color:var(--accent)}
 
 .split{display:grid;gap:2rem;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);
