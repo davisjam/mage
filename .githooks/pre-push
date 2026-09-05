@@ -1,0 +1,26 @@
+#!/usr/bin/env python3
+"""Local pre-push check. The fast belt; CI is authoritative.
+
+# Generated from davis-web/templates/github/pre-push
+# Regenerate with: ./scripts/sync-site <site-id>
+
+Install once per clone:  git config core.hooksPath .githooks
+
+Runs the same figure sensors CI runs, so "it passed locally" means the same
+thing. Deliberately fast -- a hook slow enough to resent is a hook that gets
+bypassed with --no-verify, and then it protects nothing.
+"""
+import pathlib
+import subprocess
+import sys
+
+root = pathlib.Path(__file__).resolve().parent.parent
+figs = root / "figures"
+if not (figs / "check_figures.py").exists():
+    sys.exit(0)
+
+r = subprocess.run([sys.executable, str(figs / "check_figures.py"), str(figs), "--quiet"])
+if r.returncode:
+    print("\npre-push blocked: figure sensors reported blocking findings.")
+    print("Fix them, or push with --no-verify if you are certain.")
+sys.exit(r.returncode)
