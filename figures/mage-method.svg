@@ -56,7 +56,7 @@
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="1000" height="1020" fill="#fdfcf9"/>
+  <rect x="0" y="0" width="1000" height="1020" fill="#ffffff"/>
 
   <!-- edge-grammar: keep-angles -->
   <!-- KEEP-ANGLES (this grammar-establishing overview's non-orthogonal edges are all deliberate):
@@ -113,7 +113,7 @@
   <!-- edge: modeling -> alignment -->
   <path d="M500,500 L500,600" fill="none" stroke="#57534e" stroke-width="2.4" marker-end="url(#f-mage-method-mm-ah)"/>
   <!-- the relationship label's background doubles as the node the governance-conversion loop plugs into -->
-  <rect id="f-mage-method-semantic-surface" x="342" y="512" width="316" height="56" fill="#fdfcf9"/>
+  <rect id="f-mage-method-semantic-surface" x="342" y="512" width="316" height="56" fill="#ffffff"/>
   <text x="500" y="536" text-anchor="middle" font-size="20" font-weight="600" fill="#1f7a4d">exposes properties</text>
   <text x="500" y="560" text-anchor="middle" font-size="20" font-weight="600" fill="#1f7a4d">for analysis</text>
 
